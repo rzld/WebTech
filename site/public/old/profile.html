@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>FilmTalk - Home</title>
+    <title>FilmTalk - Profile</title>
 
     <!-- Bootstrap -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="project.css" rel="stylesheet" />
 
@@ -43,49 +43,25 @@
       </div>
     </nav>
 
-    <div class="container margin-top">
+    <div class="container">
       <div class="row">
         <div class="col-sm-3">
-          <div class="panel panel-default">
-            <div class="panel-heading"><h2>Your Profile</h2></div>
-            <div class="panel-body">
-              <p>
-                Profile overview here - e.g. Twitter
-              </p>
-            </div>
-          </div>
+          <h2>Hello!</h2>
+          <p>
+            Profile overview here - e.g. Twitter
+          </p>
         </div>
         <div class="col-sm-5">
-          <div class="panel panel-default">
-            <div class="panel-heading"><h2>Timeline</h2></div>
-            <div class="panel-body">
-              <form>
-                <div class="form-group">
-                  <label for="movie">Select movie:</label>
-                  <select class="form-control" id="movie">
-                    <option>Movie list here</option>
-                    <option>Fetched from database</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" rows="5" id="review" placeholder="Your Review"/>
-                </div>
-                <div class="btn-group">
-                  <input type="submit" id="post" class="btn btn-primary" value="Post!"/>
-                </div>
-              </form>
-            </div>
-          </div>
+          <h2>Your Timeline</h2>
+          <p>
+            Timeline showing user's recent updates
+          </p>
         </div>
-        <div class="col-sm-4">
-          <div class="panel panel-default">
-            <div class="panel-heading panel-heading-new"><h2>New Releases</h2></div>
-            <div class="panel-body">
-              <p>
-                List of new released movie.
-              </p>
-            </div>
-          </div>
+        <div class="col-sm-4" style="background-color:#5bc0de;">
+          <h2>Recently rated Movies</h2>
+          <p>
+            This column shows 5 movies recently reviewed by user.
+          </p>
         </div>
       </div>
     </div>

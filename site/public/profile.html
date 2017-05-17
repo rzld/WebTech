@@ -9,7 +9,7 @@
     <title>FilmTalk - Profile</title>
 
     <!-- Bootstrap -->
-    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="project.css" rel="stylesheet" />
 
@@ -43,25 +43,37 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container margin-top">
       <div class="row">
         <div class="col-sm-3">
-          <h2>Hello!</h2>
-          <p>
-            Profile overview here - e.g. Twitter
-          </p>
+          <div class="panel panel-default">
+            <div class="panel-heading"><h2>Your Profile</h2></div>
+            <div class="panel-body">
+              <p>
+                Profile overview here - e.g. Twitter
+              </p>
+            </div>
+          </div>
         </div>
         <div class="col-sm-5">
-          <h2>Your Timeline</h2>
-          <p>
-            Timeline showing user's recent updates
-          </p>
+          <div class="panel panel-default">
+            <div class="panel-heading"><h2>Your Reviews</h2></div>
+            <div class="panel-body">
+              <p>
+                User's review
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-4" style="background-color:#5bc0de;">
-          <h2>Recently rated Movies</h2>
-          <p>
-            This column shows 5 movies recently reviewed by user.
-          </p>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading panel-heading-top5"><h2>Top 5 Movies</h2></div>
+            <div class="panel-body">
+              <p>
+                Top 5 rated movies by user.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

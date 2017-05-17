@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>FilmTalk - Home</title>
+    <title>Welcome to FilmTalk</title>
 
     <!-- Bootstrap -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="project.css" rel="stylesheet" />
 
@@ -35,57 +35,61 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Profile</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Sign out</a></li>
+            <li><a href="#contact">Sign in</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container margin-top">
+    <div class="jumbotron">
+      <div class="project">
+        <h1>Welcome to FilmTalk</h1>
+        <p class="lead">The perfect place to share your film reviews.</p>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="row">
-        <div class="col-sm-3">
-          <div class="panel panel-default">
-            <div class="panel-heading"><h2>Your Profile</h2></div>
-            <div class="panel-body">
-              <p>
-                Profile overview here - e.g. Twitter
-              </p>
-            </div>
-          </div>
+        <div class="col-md-4">
+          <h2>Project Report</h2>
+          <p>
+              <ul>
+              <li>C for HTML</li>
+              <li>C for CSS</li>
+              <li>D for JS</li>
+              <li>X for PNG</li>
+              <li>X for SVG</li>
+              <li>X for Server</li>
+              <li>X for Database</li>
+              <li>C for Dynamic pages</li>
+              <li>X for Depth (out of 40)</li>
+              </ul>
+          </p>
         </div>
-        <div class="col-sm-5">
-          <div class="panel panel-default">
-            <div class="panel-heading"><h2>Timeline</h2></div>
-            <div class="panel-body">
-              <form>
-                <div class="form-group">
-                  <label for="movie">Select movie:</label>
-                  <select class="form-control" id="movie">
-                    <option>Movie list here</option>
-                    <option>Fetched from database</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" rows="5" id="review" placeholder="Your Review"/>
-                </div>
-                <div class="btn-group">
-                  <input type="submit" id="post" class="btn btn-primary" value="Post!"/>
-                </div>
-              </form>
-            </div>
-          </div>
+        <div class="col-md-4">
+          <h3>About our project</h3>
+          <p>
+            <ul>
+              <li>We are planning to create a website for movie reviews. The idea
+                is that people can come and post reviews of movies they have watched,
+                give ratings, and comment on other people's reviews. This idea was
+                inspired by an existing website called letterboxd.com</li>
+              <li>We created this web page using Bootstrap,
+                a free HTTP, CSS, and JS Framework to create responsive websites.
+                It is still developed using the original template from the Bootstrap
+                examples, but we are planning to modify it to suit our needs.</li>
+            </ul>
+          </p>
         </div>
-        <div class="col-sm-4">
-          <div class="panel panel-default">
-            <div class="panel-heading panel-heading-new"><h2>New Releases</h2></div>
-            <div class="panel-body">
-              <p>
-                List of new released movie.
-              </p>
-            </div>
-          </div>
+        <div class="col-md-4">
+          <h3>Team</h3>
+          <p>
+            <ul>
+              <li>Rizaldi Tri Yanuar, ry16616@my.bristol.ac.uk</li>
+              <li>Mariam Basajja, mb16629@my.bristol.ac.uk</li>
+            </ul>
+          </p>
         </div>
       </div>
     </div>

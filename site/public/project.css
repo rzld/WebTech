@@ -1,8 +1,27 @@
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
+
 .project {
-    padding: 40px 15px;
-    text-align: center;
+  padding: 40px 15px;
+  text-align: center;
+}
+
+container {
+  padding-top: 50px;
+}
+
+.margin-top {
+  padding-top: 20px;
+}
+
+.panel-default > .panel-heading-top5 {
+  background: RGB(27, 73, 210);
+  color:white;
+}
+
+.panel-default > .panel-heading-new {
+  background: RGB(255, 125, 5);
+  color:white;
 }
