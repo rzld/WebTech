@@ -25,3 +25,8 @@ container {
   background: RGB(255, 125, 5);
   color:white;
 }
+
+.center-block {
+  width: 500px;
+  padding: 10px;
+}
