@@ -126,6 +126,7 @@ function defineTypes() {
         rar  : undefined,      // non-standard, platform dependent, use .zip
         doc  : undefined,      // non-standard, platform dependent, use .pdf
         docx : undefined,      // non-standard, platform dependent, use .pdf
+        //db   : "application/msaccess",
     }
     return types;
 }
