@@ -170,6 +170,3 @@ input[name="star"]:checked + label {
     color: #d62a9d;
   }
 }
-
-/* star rating version 2 */
-/* http://blog.iconfinder.com/how-to-create-a-responsive-star-rater-using-css-and-svg/ */

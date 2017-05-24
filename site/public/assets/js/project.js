@@ -1,7 +1,4 @@
-function bigImg(x) {
-  x.style.height = "200%";
-  x.style.width = "200%";
-}
+
 
 /* Slideshow animation */
 /* ref: https://www.w3schools.com/howto/howto_js_slideshow.asp */
