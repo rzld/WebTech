@@ -14,6 +14,9 @@
 
 var http = require("http");
 var fs = require("fs");
+var sqlite3 = require("sqlite3").verbose();
+var db = new sqlite3.Database("./filmtalk.db");
+var mime = require("mime");
 var OK = 200, NotFound = 404, BadType = 415, Error = 500;
 var types, banned;
 start(8080);
@@ -33,13 +36,24 @@ function start(port) {
 // Serve a request by delivering a file.
 function handle(request, response) {
     var url = request.url.toLowerCase();
-    if (url.endsWith("/")) url = url + "index.html";
-    if (isBanned(url)) return fail(response, NotFound, "URL has been banned");
-    var type = findType(url);
-    if (type == null) return fail(response, BadType, "File type unsupported");
-    var file = "./public" + url;
-    fs.readFile(file, ready);
-    function ready(err, content) { deliver(response, type, err, content); }
+    console.log("url=", url);
+    if (url.startsWith("/moviedetails.html")) getMovie(url, response);
+    else getFile(url, response);
+}
+
+function getFile(url, response) {
+  console.log("getfile");
+  if (url.endsWith("/")) url = url + "index.html";
+  //else getFile(url, response);
+  //if (url == "/data") getList(response);
+  if (isBanned(url)) return fail(response, NotFound, "URL has been banned");
+  var type = findType(url);
+  //console.log(type);
+  if (type == null) return fail(response, BadType, "File type unsupported");
+  var file = "./public" + url;
+  //console.log(file);
+  fs.readFile(file, ready);
+  function ready(err, content) { deliver(response, type, err, content); }
 }
 
 // Forbid any resources which shouldn't be delivered to the browser.
@@ -54,12 +68,19 @@ function isBanned(url) {
 // Find the content type to respond with, or undefined.
 function findType(url) {
     var dot = url.lastIndexOf(".");
-    var extension = url.substring(dot + 1);
+    var qmark = url.lastIndexOf("?");
+    if (qmark < 0) {
+      var extension = url.substring(dot + 1);
+    }
+    else {
+      var extension = url.substring(dot + 1, qmark);
+    }
     return types[extension];
 }
 
 // Deliver the file that has been read in to the browser.
 function deliver(response, type, err, content) {
+    console.log(type);
     if (err) return fail(response, NotFound, "File not found");
     var typeHeader = { "Content-Type": type };
     response.writeHead(OK, typeHeader);
@@ -126,7 +147,43 @@ function defineTypes() {
         rar  : undefined,      // non-standard, platform dependent, use .zip
         doc  : undefined,      // non-standard, platform dependent, use .pdf
         docx : undefined,      // non-standard, platform dependent, use .pdf
-        //db   : "application/msaccess",
     }
     return types;
+}
+
+function getMovie(url, response) {
+  fs.readFile("./moviedetails.html", "utf8", ready);
+  function ready(err, content) {
+    getData(content, url, response);
+  }
+
+}
+
+function getData(text, url, response) {
+  var parts = url.split("=");
+  var id = parts[1];
+  var ps = db.prepare("select * from movie where movie_id=?");
+  ps.get(id, ready);
+  function ready(err, obj) {
+    prepare(text, obj, response);
+  }
+}
+
+function prepare(text, data, response) {
+  var parts = text.split("$");
+  var page = parts[0] + data.title + parts[1] + data.title + parts[2] + data.year +
+              parts[3] + data.poster + parts[4] + data.rating + parts[5] + data.director +
+              parts[6] + data.cast + parts[7] + data.synopsis + parts[8];
+  deliver(response, "text/html", null, page);
+}
+
+function getList(response) {
+  var ps = db.prepare();
+  ps.all(ready);
+  function ready(err, list) { deliverList(list, response);}
+}
+
+function deliverList(list, response) {
+  var text = JSON.stringify(list);
+  deliver(response, "text/plain", null, text);
 }
